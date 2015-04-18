@@ -1,6 +1,6 @@
 var express = require('express');
-var User = require('./models/user');
-var Loan = require('./models/loan');
+var User = require('../models/user');
+var Loan = require('../models/loan');
 
 var router = express.Router();
 
@@ -11,12 +11,8 @@ router.get('/', function(req, res) {
     });
 });
 
-router.get('/:username/:asdf', function(req, res){
-    res.json({
-        'status' : true, 
-        'message' : req.params.username + " " + req.params.asdf
+/* get user */
+router.get('')
 
-    });
-});
 
 module.exports = router;
