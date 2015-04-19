@@ -40,11 +40,11 @@ section {
 }
 
 .set-bk-clr {
-    background-color: #8C91F9;
+    background-color: #379DE0;
 }
 
 .clr-set {
-    color: #FF2276;
+    color: #379DE0;
 }
 
 .f-big {
@@ -93,7 +93,7 @@ padding:0px;
     }
 
 .navbar-default {
-    background-color: #8C91F9;
+    background-color: #379DE0;
     border-color: transparent;
 }
 /* ADDED PADDING IN NAVBAR */
@@ -116,6 +116,20 @@ padding:0px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
+}
+
+#createButton {
+    background: #E0C513;
+    text-shadow: 0px 1px 0px #E0C513, 0px 3px 0px rgba(0,0,0,0.15);
+    -webkit-text-shadow: 0px 1px 0px #E0C513, 0px 3px 0px rgba(0,0,0,0.15);
+    -moz-text-shadow: 0px 1px 0px #E0C513, 0px 3px 0px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+#createButton:hover {
+    color: #eee;
 }
 
 
@@ -165,7 +179,7 @@ padding:0px;
     #services i {
         font-size: 80px;
         padding: 30px;
-        color: #FF2276;
+        color: #379DE0;
     }
 
     #services h4 {
@@ -239,8 +253,8 @@ padding:0px;
 
 /* FOR CHANGING COLOR OF ACTIVE CATEGORY */
 .caegories a.active {
-    background-color: #FF2276;
-    border: 2px solid #FF2276;
+    background-color: #379DE0;
+    border: 2px solid #379DE0;
 }
 
 /* FOR TRANSITION BEAUTIFULLY */
@@ -251,7 +265,7 @@ padding:0px;
 }
 
 #works .work-wrapper {
-    border: 2px solid #FF2276;
+    border: 2px solid #379DE0;
     padding: 2px;
     margin: 5px 5px 10px 5px;
 }
