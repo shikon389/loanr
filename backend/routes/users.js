@@ -113,7 +113,7 @@ router.post('/:username', function(req, res){
                 'status': false, 
                 'error': err
             });
-        });
+        }
 
     });
 });
