@@ -4,7 +4,6 @@ var User = require('../models/user');
 
 var client_id = process.env.CLIENT_ID; 
 var client_secret = process.env.CLIENT_SECRET; 
-var callback_url = ""; 
 
 var venmoStrategy = passportVenmo.Strategy;
 
@@ -12,14 +11,62 @@ var venmo_strategy = new venmoStrategy(
     {
         'clientID': client_id, 
         'clientSecret': client_secret, 
-        'callbackURL': "http://loanr.thenoobprogrammer.com/api/users/authenticate"
+        'callbackURL': "http://loanr.thenoobprogrammer.com/api/users/authenticate/callback"
     }, 
     function(accessToken, refreshToken, profile, next){
-        User.findOrCreate({"username": profile.username, "venmoId": profile.id}, function(err, user){
-            return next(err, user); 
+        console.log("call backing");
+        User.findOne({ 'username': profile.username }, function(err, user){
+            if(err){
+
+                console.log("HELLOOOOO");
+
+                return next(err, false);
+            }
+
+            console.log("HELLOOOOO");
+
+            if(!user){
+                user = new User({
+                    'username': profile.username, 
+                    'venmoId': profile.id, 
+                    'access_token': accessToken,
+                    'loans_given': [], 
+                    'loans_taken': []
+                });
+
+                user.save(function(err){
+                    if(err) return next(err, false);
+                    return next(null, user);
+                }); 
+            }
+            else{
+                user.access_token = accessToken;
+                user.save(function(err){
+                    if(err) return next(err, false); 
+                    return next(null, user);
+                });
+            }
         });
     }
 );
+
+passport.serializeUser(function(user, next) {
+  next(null, username);
+});
+
+passport.deserializeUser(function(username, next) {
+  User.findOne({'username':username}, function(err, user){
+    if(err){
+        next(err, false);
+    }
+
+    if(!user){
+        next(null, false);
+    }
+
+    next(null, user);
+  })
+});
 
 passport.use(venmo_strategy);
 

@@ -6,22 +6,27 @@ var passport = require('../configs/passport');
 var router = express.Router();
 
 router.get('/', function(req, res){
-    return res.json({
-        'status': true, 
-        'message': "user route"
+    User.find({}, function(err, users){
+        return res.json({
+            'status': true, 
+            'users': users
+        });
     });
 });
 
 
 /* User Autherization */
-router.get('/authenticate', passport.authenticate('venmo', {scope: ['make_payments', 'access_balance', 'access_friends' ]}), function(req, res){
-    if(!req.user){
+router.get('/authenticate', passport.authenticate('venmo', {scope: ['make_payments', 'access_balance', 'access_friends' ]}));
+
+router.get('/authenticate/callback', function(req, res){
+    if(req.user){
         return res.json({
-            'status': false
-        });
+            "status" : true
+        }); 
     }
+
     return res.json({
-        'status': true
+        "status" : false
     });
 });
 
@@ -40,8 +45,6 @@ router.get('/:username', function(req, res){
                 'message': "Couldn't find User"
             });
         }
-
-
 
         return res.json({
             'status': true, 
