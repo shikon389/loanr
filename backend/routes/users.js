@@ -16,7 +16,7 @@ router.get('/', function(req, res){
 
 
 /* User Autherization */
-router.get('/authenticate', passport.authenticate('venmo', { 'scope': ['make_payments', 'access_balance', 'access_friends' ]}));
+router.get('/authenticate', passport.authenticate('venmo', { scope: ['access_profile', 'make_payments', 'access_friends']}));
 
 router.get('/authenticate/callback', passport.authenticate('venmo'), function(req, res){
     if(req.user){
@@ -44,12 +44,24 @@ router.get('/:username', function(req, res){
                 'status': false, 
                 'message': "Couldn't find User"
             });
-        }
+        }   
 
-        return res.json({
-            'status': true, 
-            'user': user
+        var reqUrl = "https://api.venmo.com/v1/users/" + user.venmoId + "?access_token=" + user.access_token;
+
+        request({
+            uri: reqUrl,
+            method: "GET",
+        },
+        function(err, response, body){
+            console.log(body); 
+            return res.json({
+                'status': true, 
+                'user': user, 
+                'venmo_account': JSON.parse(body).data
+            });
         });
+
+
     });
 });
 
