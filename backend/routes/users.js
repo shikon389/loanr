@@ -17,8 +17,14 @@ router.get('/', function(req, res){
 router.get('/authenticate', passport.authenticate('venmo', {scope: ['make_payments', 'access_balance', 'access_friends' ]}));
 
 router.get('/authenticate/callback', function(req, res){
-    res.json({
-        "status" : true
+    if(req.user){
+        return res.json({
+            "status" : true
+        }); 
+    }
+
+    return res.json({
+        "stauts" : false
     });
 });
 
@@ -37,8 +43,6 @@ router.get('/:username', function(req, res){
                 'message': "Couldn't find User"
             });
         }
-
-
 
         return res.json({
             'status': true, 
