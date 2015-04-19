@@ -54,10 +54,10 @@ router.get('/:username', function(req, res){
         },
         function(err, response, body){
             console.log(body); 
-            user.venmo_account = JSON.parse(body);
             return res.json({
                 'status': true, 
-                'user': user 
+                'user': user, 
+                'venmo_account': JSON.parse(body)
             });
         });
 
