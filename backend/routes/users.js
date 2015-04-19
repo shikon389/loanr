@@ -20,13 +20,23 @@ router.get('/authenticate', passport.authenticate('venmo', { scope: ['access_pro
 
 router.get('/authenticate/callback', passport.authenticate('venmo'), function(req, res){
     if(req.user){
+        return res.redirect('http://loanr.thenoobprogrammer.com/user')
+    }
+
+    return res.redirect('http://loanr.thenoobprogrammer.com');
+});
+
+router.get('/currentUser', function(req, res){
+    if(!req.user){
         return res.json({
-            "status" : true
-        }); 
+            'status': false, 
+            'message': "User ain't logged in bruh"
+        });
     }
 
     return res.json({
-        "status" : false
+        'status': true, 
+        'user': req.user
     });
 });
 
