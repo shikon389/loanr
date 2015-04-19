@@ -86,4 +86,36 @@ router.get('/:username/:loanID', function(req, res){
     });
 });
 
+router.post('/:username', function(req, res){
+    User.findOne({'username' : req.params.username}, function(err, user){
+        if(err){
+            return res.json({
+                'status': false, 
+                'error': err
+            });
+        }
+
+        if(!user){
+            return res.json({
+                'status': false, 
+                'message': "Couldn't find User"
+            });
+        }
+
+        var loan = new Loan({'borrower_username' : req.body.borrower, 'loaner_username' : req.body.loaner, 
+            'amount' : req.body.amount, 'interest_rate' : req.body.interest_rate, 'loan_period' : req.body.loan_period,
+            'payback_start_date' : req.body.payback_start_date});
+
+        loan.save(function (err, loan) {
+        
+        if (err){ 
+            return res.json({
+                'status': false, 
+                'error': err
+            });
+        });
+
+    });
+});
+
 module.exports = router;
