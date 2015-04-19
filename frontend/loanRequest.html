@@ -63,71 +63,111 @@
         </div>
     </div>
     <!-- NAVBAR END  -->
-  <section id="services">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-6 col-md-offset-3 pad-bottom" data-scroll-reveal="enter from the bottom after 0.2s">
-                <h2><strong>LOANS</strong></h2>
-                Below is information about the loans on your account!
+    <section id="services">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6 col-md-offset-3 pad-bottom" data-scroll-reveal="enter from the bottom after 0.2s">
+                    <h2><strong>LOANS</strong></h2>
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">Make Request for $</a><br>
+                    Below is information about the loans on your account!
+                </div>
             </div>
-        </div>
-        <div class="row text-center pad-bottom" data-scroll-reveal="enter from the bottom after 0.4s">
-            <div class="col-md-6">
-                <h4><strong>PEOPLE I OWE</strong></h4>
-                <table class="loans">
-                    <tr class="header">
-                        <td>USER</td>
-                        <td>AMOUNT</td>
-                        <td><a href="#"></a></td>
-                    </tr>
-                    <tr>
-                        <td>NEIL</td>
-                        <td>$123</td>
-                        <td><a href="#">PAY</a></td>
-                    </tr>
-                </table>
+            <div class="row text-center pad-bottom" data-scroll-reveal="enter from the bottom after 0.4s">
+                <div class="col-md-6">
+                    <h4><strong>PEOPLE I OWE</strong></h4>
+                    <table class="loans">
+                        <tr class="header">
+                            <td>USER</td>
+                            <td>AMOUNT</td>
+                            <td><a href="#"></a></td>
+                        </tr>
+                        <tr>
+                            <td>NEIL</td>
+                            <td>$123</td>
+                            <td><a href="#">PAY</a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h4><strong>PEOPLE WHO OWE ME</strong></h4>
+                    <table class="loans">
+                        <tr class="header">
+                            <td>USER</td>
+                            <td>AMOUNT</td>
+                            <td><a href="#"></a></td>
+                        </tr>
+                        <tr>
+                            <td>CARMINE</td>
+                            <td>$123</td>
+                            <td><a href="#">PAY</a></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h4><strong>PEOPLE WHO OWE ME</strong></h4>
-                <table class="loans">
-                    <tr class="header">
-                        <td>USER</td>
-                        <td>AMOUNT</td>
-                        <td><a href="#"></a></td>
-                    </tr>
-                    <tr>
-                        <td>CARMINE</td>
-                        <td>$123</td>
-                        <td><a href="#">PAY</a></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
 
-    </div>
-</section>
-<!-- SERVICES SECTION END  -->
+        </div>
+    </section>
+    <!-- SERVICES SECTION END  -->
 
-<!-- CONTACT SECTION END -->
-<footer>
-    &copy 2015 loanr  | <a href="http://www.designbootstrap.com/" target="_blank">by DesignBootstrap</a>
-</footer>
-<!--FOOTER SECTION END  -->
-<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-<!-- CORE JQUERY  SCRIPTS -->
-<script src="assets/js/jquery-1.11.1.js"></script>
-<!-- BOOTSTRAP SCRIPTS  -->
-<script src="assets/js/bootstrap.js"></script>
-<!-- SCROLLING SCRIPTS PLUGIN  -->
-<script src="assets/js/jquery.easing.min.js"></script>
-<!--  FANCYBOX PLUGIN -->
-<script src="assets/js/source/jquery.fancybox.js"></script>
-<!-- ISOTOPE SCRIPTS -->
-<script src="assets/js/jquery.isotope.js"></script>
-<!-- SCROLL ANIMATIONS  -->
-<script src="assets/js/scrollReveal.js"></script>
-<!-- CUSTOM SCRIPTS   -->
-<script src="assets/js/custom.js"></script>
+    <!-- CONTACT SECTION END -->
+    <footer>
+        &copy 2015 loanr  | <a href="http://www.designbootstrap.com/" target="_blank">by DesignBootstrap</a>
+    </footer>
+    <!--FOOTER SECTION END  -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>Loan Request</h2>
+                            <p class="item-intro text-muted">Please fill out the fields.</p>
+                            <!-- <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+                            <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
+                            <form>
+                                <label>Amount: </label>
+                                <input type="text"><br>
+                                <label>To</label>
+                                <select>
+                                  <option value="volvo">Volvo</option>
+                                  <option value="saab">Saab</option>
+                                  <option value="mercedes">Mercedes</option>
+                                  <option value="audi">Audi</option>
+                                </select><br>
+                                <label>Interest?</label>
+                                <input type="radio" name="sex" value="male"> Yes 
+                                <input type="radio" name="sex" value="female"> No
+                          </form>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+  <!-- CORE JQUERY  SCRIPTS -->
+  <script src="assets/js/jquery-1.11.1.js"></script>
+  <!-- BOOTSTRAP SCRIPTS  -->
+  <script src="assets/js/bootstrap.js"></script>
+  <!-- SCROLLING SCRIPTS PLUGIN  -->
+  <script src="assets/js/jquery.easing.min.js"></script>
+  <!--  FANCYBOX PLUGIN -->
+  <script src="assets/js/source/jquery.fancybox.js"></script>
+  <!-- ISOTOPE SCRIPTS -->
+  <script src="assets/js/jquery.isotope.js"></script>
+  <!-- SCROLL ANIMATIONS  -->
+  <script src="assets/js/scrollReveal.js"></script>
+  <!-- CUSTOM SCRIPTS   -->
+  <script src="assets/js/custom.js"></script>
 
 </body>
 </html>
