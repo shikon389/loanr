@@ -16,6 +16,9 @@ var venmo_strategy = new venmoStrategy(
     function(accessToken, refreshToken, profile, next){
         User.findOne({ 'username': profile.username }, function(err, user){
             if(err){
+
+                console.log("HELLOOOOO");
+
                 return next(err, false);
             }
 
