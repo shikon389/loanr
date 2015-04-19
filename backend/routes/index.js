@@ -11,8 +11,4 @@ router.get('/', function(req, res) {
     });
 });
 
-/* get user */
-router.get('')
-
-
 module.exports = router;
