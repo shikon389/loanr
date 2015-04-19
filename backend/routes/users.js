@@ -18,7 +18,7 @@ router.get('/', function(req, res){
 /* User Autherization */
 router.get('/authenticate', passport.authenticate('venmo', {scope: ['make_payments', 'access_balance', 'access_friends' ]}));
 
-router.get('/authenticate/callback', function(req, res){
+router.get('/authenticate/callback', passport.authenticate('venmo'), function(req, res){
     if(req.user){
         return res.json({
             "status" : true
@@ -30,7 +30,7 @@ router.get('/authenticate/callback', function(req, res){
     });
 });
 
-router.get('/:username', passport.authenticate('venmo'), function(req, res){
+router.get('/:username', function(req, res){
     User.findOne({'username' : req.params.username}, function(err, user){
         if(err){
             return res.json({
