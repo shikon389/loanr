@@ -57,7 +57,7 @@ router.get('/:username', function(req, res){
             return res.json({
                 'status': true, 
                 'user': user, 
-                'venmo_account': JSON.parse(body)
+                'venmo_account': JSON.parse(body).data
             });
         });
 
