@@ -15,37 +15,39 @@ var venmo_strategy = new venmoStrategy(
     }, 
     function(accessToken, refreshToken, profile, next){
         console.log("call backing");
-        User.findOne({ 'username': profile.username }, function(err, user){
-            if(err){
+        process.nextTick(function(){
+            User.findOne({ 'username': profile.username }, function(err, user){
+                if(err){
+
+                    console.log("HELLOOOOO");
+
+                    return next(err, false);
+                }
 
                 console.log("HELLOOOOO");
 
-                return next(err, false);
-            }
+                if(!user){
+                    user = new User({
+                        'username': profile.username, 
+                        'venmoId': profile.id, 
+                        'access_token': accessToken,
+                        'loans_given': [], 
+                        'loans_taken': []
+                    });
 
-            console.log("HELLOOOOO");
-
-            if(!user){
-                user = new User({
-                    'username': profile.username, 
-                    'venmoId': profile.id, 
-                    'access_token': accessToken,
-                    'loans_given': [], 
-                    'loans_taken': []
-                });
-
-                user.save(function(err){
-                    if(err) return next(err, false);
-                    return next(null, user);
-                }); 
-            }
-            else{
-                user.access_token = accessToken;
-                user.save(function(err){
-                    if(err) return next(err, false); 
-                    return next(null, user);
-                });
-            }
+                    user.save(function(err){
+                        if(err) return next(err, false);
+                        return next(null, user);
+                    }); 
+                }
+                else{
+                    user.access_token = accessToken;
+                    user.save(function(err){
+                        if(err) return next(err, false); 
+                        return next(null, user);
+                    });
+                }
+            });
         });
     }
 );
