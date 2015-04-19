@@ -8,11 +8,11 @@ var callback_url = "";
 
 var venmoStrategy = passportVenmo.Strategy;
 
-var venmo_strategy = new VenmoStrategy(
+var venmo_strategy = new venmoStrategy(
     {
         'clientID': client_id, 
         'clientSecret': client_secret, 
-        'callbackURL': "http://127.0.0.1/users/authenticate"
+        'callbackURL': "http://localhost:3000/users/authenticate"
     }, 
     function(accessToken, refreshToken, profile, next){
         User.findOrCreate({"username": profile.username, "venmoId": profile.id}, function(err, user){
@@ -20,5 +20,7 @@ var venmo_strategy = new VenmoStrategy(
         });
     }
 );
+
+passport.use(venmo_strategy);
 
 module.exports = passport; 
