@@ -4,7 +4,6 @@ var User = require('../models/user');
 
 var client_id = process.env.CLIENT_ID; 
 var client_secret = process.env.CLIENT_SECRET; 
-var callback_url = ""; 
 
 var venmoStrategy = passportVenmo.Strategy;
 
@@ -12,7 +11,7 @@ var venmo_strategy = new venmoStrategy(
     {
         'clientID': client_id, 
         'clientSecret': client_secret, 
-        'callbackURL': "http://loanr.thenoobprogrammer.com/api/users/authenticate"
+        'callbackURL': "http://loanr.thenoobprogrammer.com/api/users/authenticate/callback"
     }, 
     function(accessToken, refreshToken, profile, next){
         User.findOrCreate({"username": profile.username, "venmoId": profile.id}, function(err, user){
