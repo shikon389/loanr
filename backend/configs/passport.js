@@ -19,6 +19,8 @@ var venmo_strategy = new venmoStrategy(
                 return next(err, false);
             }
 
+            console.log("HELLOOOOO");
+
             if(!user){
                 user = new User({
                     'username': profile.username, 
