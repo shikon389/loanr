@@ -40,7 +40,7 @@ section {
 }
 
 .set-bk-clr {
-    background-color: #FF2276;
+    background-color: #8C91F9;
 }
 
 .clr-set {
@@ -93,7 +93,7 @@ padding:0px;
     }
 
 .navbar-default {
-    background-color: #FF2276;
+    background-color: #8C91F9;
     border-color: transparent;
 }
 /* ADDED PADDING IN NAVBAR */
@@ -144,7 +144,7 @@ padding:0px;
         font-weight: 900;
         padding-top: 180px;
         padding-bottom: 35px;
-        color: #FF2276;
+        color: #FFFFFF;
     }
 
 
@@ -172,6 +172,11 @@ padding:0px;
         padding-bottom: 5px;
         padding-top: 15px;
     }
+
+#profile_pic {
+    border-radius: 50%;
+    border: 10px solid white;
+}
 /* =============================================================
   CLIENTS SECTION STYLES
  ============================================================ */
@@ -293,7 +298,6 @@ padding:0px;
     margin-right: 40px;
     max-height: 150px;
     margin-bottom: 20px;
-    border: 2px solid #FF2276;
 }
 
     .media img:hover {
