@@ -11,11 +11,11 @@ request.onreadystatechange = function(){
     req2.open("GET", req2Url, true); 
 
     req2.onreadystatechange = function(){
-        //update DOM
+        $('#name').innerHTML = xmlHttp.responseText;
     };
 
     req2.send();
 
-};  
+}; 
 
 request.send();
