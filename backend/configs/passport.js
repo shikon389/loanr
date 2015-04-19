@@ -22,6 +22,24 @@ var venmo_strategy = new venmoStrategy(
     }
 );
 
+passport.serializeUser(function(user, next) {
+  next(null, username);
+});
+
+passport.deserializeUser(function(username, next) {
+  User.findOne({'username':username}, function(err, user){
+    if(err){
+        next(err, false);
+    }
+
+    if(!user){
+        next(null, false);
+    }
+
+    next(null, user);
+  })
+});
+
 passport.use(venmo_strategy);
 
 module.exports = passport; 
