@@ -53,7 +53,7 @@ var venmo_strategy = new venmoStrategy(
 );
 
 passport.serializeUser(function(user, next) {
-  next(null, username);
+  return next(null, user.username);
 });
 
 passport.deserializeUser(function(username, next) {
@@ -66,7 +66,7 @@ passport.deserializeUser(function(username, next) {
         next(null, false);
     }
 
-    next(null, user);
+    return next(null, user);
   })
 });
 
