@@ -40,11 +40,11 @@ section {
 }
 
 .set-bk-clr {
-    background-color: #8C91F9;
+    background-color: #379DE0;
 }
 
 .clr-set {
-    color: #FF2276;
+    color: #379DE0;
 }
 
 .f-big {
@@ -93,7 +93,7 @@ padding:0px;
     }
 
 .navbar-default {
-    background-color: #8C91F9;
+    background-color: #379DE0;
     border-color: transparent;
 }
 /* ADDED PADDING IN NAVBAR */
@@ -165,7 +165,7 @@ padding:0px;
     #services i {
         font-size: 80px;
         padding: 30px;
-        color: #FF2276;
+        color: #379DE0;
     }
 
     #services h4 {
@@ -239,8 +239,8 @@ padding:0px;
 
 /* FOR CHANGING COLOR OF ACTIVE CATEGORY */
 .caegories a.active {
-    background-color: #FF2276;
-    border: 2px solid #FF2276;
+    background-color: #379DE0;
+    border: 2px solid #379DE0;
 }
 
 /* FOR TRANSITION BEAUTIFULLY */
@@ -251,7 +251,7 @@ padding:0px;
 }
 
 #works .work-wrapper {
-    border: 2px solid #FF2276;
+    border: 2px solid #379DE0;
     padding: 2px;
     margin: 5px 5px 10px 5px;
 }
