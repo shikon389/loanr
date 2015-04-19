@@ -118,6 +118,20 @@ padding:0px;
     -moz-border-radius: 4px;
 }
 
+#createButton {
+    background: #E0C513;
+    text-shadow: 0px 1px 0px #E0C513, 0px 3px 0px rgba(0,0,0,0.15);
+    -webkit-text-shadow: 0px 1px 0px #E0C513, 0px 3px 0px rgba(0,0,0,0.15);
+    -moz-text-shadow: 0px 1px 0px #E0C513, 0px 3px 0px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+#createButton:hover {
+    color: #eee;
+}
+
 
 /* =============================================================
   HEADER SECTION STYLES
