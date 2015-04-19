@@ -106,6 +106,15 @@ router.post('/:username', function(req, res){
             'amount' : req.body.amount, 'interest_rate' : req.body.interest_rate, 'loan_period' : req.body.loan_period,
             'payback_start_date' : req.body.payback_start_date});
 
+        loan.save(function (err, loan) {
+        
+        if (err){ 
+            return res.json({
+                'status': false, 
+                'error': err
+            });
+        });
+
     });
 });
 
