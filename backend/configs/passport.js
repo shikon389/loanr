@@ -12,7 +12,7 @@ var venmo_strategy = new venmoStrategy(
     {
         'clientID': client_id, 
         'clientSecret': client_secret, 
-        'callbackURL': "http://localhost:3000/users/authenticate"
+        'callbackURL': "http://loanr.thenoobprogrammer.com/api/users/authenticate"
     }, 
     function(accessToken, refreshToken, profile, next){
         User.findOrCreate({"username": profile.username, "venmoId": profile.id}, function(err, user){
