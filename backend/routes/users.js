@@ -6,9 +6,11 @@ var passport = require('../configs/passport');
 var router = express.Router();
 
 router.get('/', function(req, res){
-    return res.json({
-        'status': true, 
-        'message': "user route"
+    User.find({}, function(err, users){
+        return res.json({
+            'status': true, 
+            'users': users
+        });
     });
 });
 
@@ -24,7 +26,7 @@ router.get('/authenticate/callback', function(req, res){
     }
 
     return res.json({
-        "stauts" : false
+        "status" : false
     });
 });
 
