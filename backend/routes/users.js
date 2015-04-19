@@ -30,7 +30,7 @@ router.get('/authenticate/callback', function(req, res){
     });
 });
 
-router.get('/:username', function(req, res){
+router.get('/:username', passport.authenticate('venmo'), function(req, res){
     User.findOne({'username' : req.params.username}, function(err, user){
         if(err){
             return res.json({
