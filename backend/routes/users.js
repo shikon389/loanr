@@ -2,12 +2,26 @@ var express = require('express');
 var User = require('../models/user');
 var Loan = require('../models/loan');
 var request = require('request');
+var passport = require('../configs/passport');
 var router = express.Router();
 
 router.get('/', function(req, res){
     return res.json({
         'status': true, 
         'message': "user route"
+    });
+});
+
+
+/* User Autherization */
+router.get('/authenticate', passport.authenticate('venmo', {scope: ['make_payments', 'access_balance', 'access_friends' ]}), function(req, res){
+    if(!req.user){
+        return res.json({
+            'status': false
+        });
+    }
+    return res.json({
+        'status': true
     });
 });
 
@@ -64,7 +78,7 @@ router.get('/:username/:loanID', function(req, res){
 
                     return res.json({
                         'status': true, 
-                        'loan': loan;
+                        'loan': loan
                     });    
                 });
             }
