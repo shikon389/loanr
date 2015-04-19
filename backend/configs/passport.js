@@ -14,6 +14,7 @@ var venmo_strategy = new venmoStrategy(
         'callbackURL': "http://loanr.thenoobprogrammer.com/api/users/authenticate/callback"
     }, 
     function(accessToken, refreshToken, profile, next){
+        console.log("call backing");
         User.findOne({ 'username': profile.username }, function(err, user){
             if(err){
 
