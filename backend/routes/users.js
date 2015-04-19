@@ -49,7 +49,7 @@ router.get('/:username', function(req, res){
         var reqUrl = "https://api.venmo.com/v1/users/" + user.venmoId + "?access_token=" + user.access_token;
 
         request.get(reqUrl).on('response', function(response){
-            console.log(response);
+            console.log(response);  
             user.venmo = response;
             return res.json({
                 'status': true, 

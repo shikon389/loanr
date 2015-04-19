@@ -24,7 +24,7 @@ var venmo_strategy = new venmoStrategy(
                     return next(err, false);
                 }
 
-                console.log("HELLOOOOO");
+                console.log("access_token:" + accessToken);
 
                 if(!user){
                     user = new User({
