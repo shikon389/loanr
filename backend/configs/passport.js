@@ -14,8 +14,10 @@ var venmo_strategy = new venmoStrategy(
         'callbackURL': "http://loanr.thenoobprogrammer.com/api/users/authenticate/callback"
     }, 
     function(accessToken, refreshToken, profile, next){
-        User.findOrCreate({"username": profile.username, "venmoId": profile.id}, function(err, user){
-            return next(err, user); 
+        User.findOrCreate({"username": profile.username, "venmoId": profile.id, 'access_token': accessToken}, function(err, user, created){
+            user.save(function(err, user){
+                return next(err, user);
+            });
         });
     }
 );
