@@ -108,12 +108,13 @@ router.post('/:username', function(req, res){
 
         loan.save(function (err, loan) {
         
-        if (err){ 
-            return res.json({
-                'status': false, 
-                'error': err
-            });
-        }
+            if (err){ 
+                return res.json({
+                    'status': false, 
+                    'error': err
+                });
+            }
+        });
 
     });
 });
