@@ -15,6 +15,9 @@ var passport = require('./configs/passport');
 var app = express();
 
 
+mongoose.connect(db.url);
+
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
